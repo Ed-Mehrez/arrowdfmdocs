@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Patrick Kiefer, Edward Mehrez, Preston Rozwood">
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>DAC Example - Arrow DFMs Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DAC Example";
+    var mkdocs_page_input_path = "3-DAC_Example.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Arrow DFMs Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Getting Started</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="" href="../index.html">Intro</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../1-overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../2-definitions/">Definitions</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">DAC Example</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#dac-settlement-example-aapl-stock-calls-no-pooling">DAC Settlement Example: AAPL Stock Calls: No Pooling</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dac-settlement-example-aapl-stock-calls-pooling">DAC Settlement Example: AAPL Stock Calls: Pooling</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#zero-residual-equity-in-collateral-pool-setting-of-s">Zero Residual Equity in Collateral Pool -- Setting of \(S^*\)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#liquidation-scenarios">Liquidation Scenarios</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../3-writingBuyingOptions.md">Writing or buying on DFMs</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Arrow DFMs Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Getting Started &raquo;</li>
+        
+      
+    
+    <li>DAC Example</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="dac-example">DAC Example</h1>
+<p>We first discuss the  </p>
+<h2 id="dac-settlement-example-aapl-stock-calls-no-pooling">DAC Settlement Example: AAPL Stock Calls: No Pooling</h2>
+<p>Suppose at <span class="arithmatex">\(t=2\)</span> <span class="arithmatex">\(S_2 = 135\)</span>. The first buyer is owed <span class="arithmatex">\(135-100=35\)</span>
+\begin{table}
+No Pooling: \hspace{12mm}
+\begin{tabular}{|l| c| c|}
+\hline 
+    t=2 &amp; K=100 &amp; K=150 \ \hline
+    Assets &amp; 25 &amp; 15\
+    Liabilities &amp; 35 &amp; 0 \ \hline
+    Residual &amp;-10 &amp; 15\
+     \hline
+\end{tabular}
+\end{table}
+Without pooling, <span class="arithmatex">\(35 &gt; 25 = m_0(K_1) + p_0(K_1)\)</span>, and the buyer must request the writer pay the difference, which cannot be enforced ex-post. Buyers should not agree to a contract like this ahead of time. </p>
+<h2 id="dac-settlement-example-aapl-stock-calls-pooling">DAC Settlement Example: AAPL Stock Calls: Pooling</h2>
+<p>With pooling, since the owner of the contract at <span class="arithmatex">\(K_2\)</span> is owed nothing, the <span class="arithmatex">\(K_1\)</span> buyer will be paid without having to enforce payment ex-post since <span class="arithmatex">\(35 &lt; 40\)</span> where <span class="arithmatex">\(40 = m_0(K_1) + p_0(K_1) + m_1(K_2) + p_1(K_2)\)</span>.
+\begin{table}
+Pooling: \hspace{12mm}
+\begin{tabular}{|l| c| c|}
+\hline 
+    t=2 &amp; K= [100, 150] \ \hline
+    Assets &amp; 40\
+    Liabilities &amp; 35 \ \hline
+    Residual &amp; 5\
+     \hline
+\end{tabular}
+\end{table}
+In this case, the writer at <span class="arithmatex">\(K=105\)</span> is refunded <span class="arithmatex">\(5\)</span> out of the original collateral of <span class="arithmatex">\(10\)</span>. Writers must not expect to lose collateral. To see how the pool can work out in favor of the writers, note that under the pooling rule, the writer at <span class="arithmatex">\(K=105\)</span> is entitled to the residual equity of the pool, which exceeds her initial collateral <span class="arithmatex">\(40 - (S_{2} - 100) &gt; m_1(K_2)\)</span> when <span class="arithmatex">\(S_{2} \leq 125\)</span>.</p>
+<p>Suppose instead that <span class="arithmatex">\(t=2\)</span> <span class="arithmatex">\(S_2 = 150\)</span>. The pooled balance sheet is insolvent. \
+\begin{table}
+Pooling: \hspace{12mm}
+\begin{tabular}{|l| c| c|}
+\hline 
+    t=2 &amp; K= [100, 150] \ \hline
+    Assets &amp; 40\
+    Liabilities &amp; 50 \ \hline
+    Residual &amp; -5\
+     \hline
+\end{tabular}
+\end{table}
+Even with pooling, the buyer of the claim to a strike at 100 is only paid <span class="arithmatex">\(S^{*} - 100\)</span> with <span class="arithmatex">\(S^{*} = 140 &lt; S_{T}\)</span>. This is the role of the tail liquidity pool, so that a writer of a contract that is promised payments in the collateral pool can add to the asset side of their balance sheet an insurance claim that pays the difference <span class="arithmatex">\((S_{T} - S^{*})^+\)</span>. \
+\begin{table}
+With insolvency insurance: \hspace{12mm}
+\begin{tabular}{|l| c| c|}
+\hline 
+    t=2 &amp; K= [100, 150] \ \hline
+    Assets &amp; 40 + \text{price}(\gamma_{B})\
+    Liabilities &amp; 50 \ \hline
+    Residual &amp; -5 + \gamma_{B} = 0\
+     \hline
+\end{tabular}
+\end{table}
+In this case, the balance sheet adjusts to set the residual value to zero.</p>
+<h2 id="zero-residual-equity-in-collateral-pool-setting-of-s">Zero Residual Equity in Collateral Pool -- Setting of <span class="arithmatex">\(S^*\)</span></h2>
+<p>In the case where the residual equity of the first pool is <span class="arithmatex">\(0\)</span>, there is a unique threshold <span class="arithmatex">\(0 &lt; S^* \leq S_{T}\)</span> such that
+\begin{align<em>}
+A_{T} - L_{T}(S)  = \begin{cases}
+= 0 \hspace{12mm} S = S^</em> \
+&lt; 0 \hspace{12mm} S &gt; S^* \</p>
+<blockquote>
+<p>0 \hspace{12mm} S &lt; S^<em>\
+\end{cases}
+\end{align</em>}
+where <span class="arithmatex">\(A_{T}\)</span> are the assets at expiration and <span class="arithmatex">\(L_{T}(S)\)</span> are the liabilities at expiration.  When an <span class="arithmatex">\(S^*\)</span> needs to be chosen, no liabilities are paid beyond <span class="arithmatex">\(S^*\)</span>. Specifically, for each open buyer contract (call) with strike <span class="arithmatex">\(k_{j} \leq S^*\)</span> the contract is paid <span class="arithmatex">\(S^* - k_{j} \leq S_{T} - k_{j}\)</span>. The clearing condition can be expressed by adding up every such contract. Find <span class="arithmatex">\(S^*\)</span> such that
+$$
+0 = \sum_{k_{j} \leq S^<em>}n_{k_j, T}(S^{</em>} - k_{j}) - A_{T}
+$$
+where <span class="arithmatex">\(n_{k_j, T}\)</span> is the number of buyer liabilities in the pool at time <span class="arithmatex">\(T\)</span> with strike <span class="arithmatex">\(k_j\)</span>. The threshold <span class="arithmatex">\(S^{*}\)</span> in practice is found using a two-step iterative deterministic algorithm described in the preliminary whitepaper. </p>
+</blockquote>
+<h2 id="liquidation-scenarios">Liquidation Scenarios</h2>
+<p>The two capital pools are calibrated to keep the probability of systemic failure near zero. However, in a failure event, 
+\begin{itemize}
+    \item Writer residual equity claims are junior to buyer liabilities
+    \item We need to find a threshold <span class="arithmatex">\(S^{**}: S_{T} &gt; S^{**} &gt; S^{*}\)</span> s.t. the assets in the tail liquidity pool are used to cover all liabilities up to <span class="arithmatex">\(S^{**}\)</span>
+\end{itemize}
+\vspace{4mm}
+\indent So, continuing in our example, suppose instead that <span class="arithmatex">\(t=2\)</span> <span class="arithmatex">\(S_2 = 250\)</span>, and suppose financiers of the tail liquidity pool have posted a quantity <span class="arithmatex">\(X=90\)</span> to cover insolvency claims. 
+\begin{itemize}
+    \item We have the same <span class="arithmatex">\(S^{*} = 140\)</span>, so <span class="arithmatex">\(S_{2} - S^{*} &gt; 90\)</span>. 
+    \item In this case, buyers have insolvency claims paid up to the threshold <span class="arithmatex">\(S^{**}=190\)</span> \item <span class="arithmatex">\(S^{**}\)</span> is chosen such that assets net of liabilities are zero, i.e., <span class="arithmatex">\(S^{**} - S^{*} + S^{**} - K_{2} = 90\)</span>. 
+\end{itemize}</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../2-definitions/" class="btn btn-neutral" title="Definitions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../2-definitions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="/home/ejm322/ArrowDeFi-Web-Server/docs/javascripts/config.js" defer></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

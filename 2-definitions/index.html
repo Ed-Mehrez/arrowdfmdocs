@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Patrick Kiefer, Edward Mehrez, Preston Rozwood">
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Definitions - Arrow DFMs Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Definitions";
+    var mkdocs_page_input_path = "2-definitions.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Arrow DFMs Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Getting Started</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="" href="../index.html">Intro</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../1-overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Definitions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#primitives-of-arrow-dfms-underliers-and-options">Primitives of Arrow DFMs: Underliers and Options</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cash-settlement">Cash Settlement</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#buyers-and-writers">Buyers and Writers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#counterparty">Counterparty</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stablecoins">Stablecoins</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#special-liquidity-vehicle-slv">Special Liquidity Vehicle (SLV)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#decentralized-aggregate-counterparty-dac">Decentralized Aggregate Counterparty (DAC)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#decentralized-financial-markets">Decentralized Financial Markets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#automated-market-maker-amm">Automated Market Maker (AMM)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limit-order-book-lob">Limit Order Book (LOB)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#crowd-financing">Crowd Financing</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../3-DAC_Example/">DAC Example</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../3-writingBuyingOptions.md">Writing or buying on DFMs</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Arrow DFMs Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Getting Started &raquo;</li>
+        
+      
+    
+    <li>Definitions</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="definitions">Definitions</h1>
+<p>Here we discuss the basic definitions of the essential elements of the Arrow protocol.</p>
+<h2 id="primitives-of-arrow-dfms-underliers-and-options">Primitives of Arrow DFMs: Underliers and Options</h2>
+<p>The two primitives on Arrow DFMs are options and the underlier on which they are built. In what follows below, we define both. </p>
+<p>An <strong>underlier</strong> is a reference asset which serves as the basis for determining the magnitude of obligations.</p>
+<p>Traditional European contracts give the right but not the obligation to either buy or sell a certain amount of the underlier at some pre-specified price called the strike price <span class="arithmatex">\(K\)</span> and at a pre-specified time called the expiration time <span class="arithmatex">\(T\)</span>. In the case of buying, this contract is called a European <strong>call option</strong> and the associated time <span class="arithmatex">\(T\)</span> payoff is 
+$$
+C_T(S_T,K)=(S_T -K)^+ 
+$$ 
+where <span class="arithmatex">\(S_T\)</span> is the underlier's, or reference asset's, price at time <span class="arithmatex">\(T\)</span>. The positive function <span class="arithmatex">\((\cdot)^+\)</span> implies that the owner of the European call will get the asset and will pay <span class="arithmatex">\(K\)</span>, thus netting the value <span class="arithmatex">\(S_T-K\)</span> at expiration if <span class="arithmatex">\(S_T &gt; K\)</span> or <span class="arithmatex">\(0\)</span> at expiration if <span class="arithmatex">\(S_T\le K\)</span> as they will not choose to purchase the asset for a more expensive price than the current price of the underlier. Similarly defined, for the selling case, are European <strong>put option</strong> which have a time <span class="arithmatex">\(T\)</span> payoff of
+$$
+P_T(S_T,K)=(K-S_T)^+ 
+$$
+The positive function <span class="arithmatex">\((\cdot)^+\)</span> implies that the owner of the European put will get the right to sell the asset at <span class="arithmatex">\(K\)</span>, thus netting the value <span class="arithmatex">\(K-S_T\)</span> at expiration if <span class="arithmatex">\(K &gt; S_T\)</span> or <span class="arithmatex">\(0\)</span> at expiration if <span class="arithmatex">\(K \le S_T\)</span> as they will not choose to sell the asset less than the current price of the underlier.
+<strong>Payoff graphs?</strong></p>
+<h2 id="cash-settlement">Cash Settlement</h2>
+<p><strong>Cash settlement</strong> on Arrow DFMs is the payment of obligations of options at their expiration time in terms of aUSD. This means in the definitions of European options above instead of exchanging the "physical" underlier while buying or selling, the payoffs are instead given as a payment in aUSD. Thus, the call option holder will receive <span class="arithmatex">\((S_T - K)^+\)</span> aUSD and the put holder will receive <span class="arithmatex">\((K-S_T)^+\)</span> aUSD at expiration time T. </p>
+<h2 id="buyers-and-writers">Buyers and Writers</h2>
+<p>On Arrow DFMs, <strong>writers</strong> are users who initiate (or mint) option contracts by providing the Arrow protocol with some specified initial capital. </p>
+<p><strong>Buyers</strong> are users who then purchase these contracts, originally minted by the writers, and hold the contractual rights that the European options grant.</p>
+<!--Investopedia: A cash settlement is a settlement method used in certain futures and options contracts where, upon expiration or exercise, the seller of the financial instrument does not deliver the actual (physical) underlying asset but instead transfers the associated cash position. For sellers not wishing to take actual possession of the underlying cash commodity, a cash settlement is a more convenient method of transacting futures and options contracts. Cash-settled contracts are one of the main reasons for the entry of speculators and, consequently, more liquidity in derivatives markets.  -->
+
+<h2 id="counterparty">Counterparty</h2>
+<p>A Counterparties are important for settlement on chain vs real world bc of lack of central clearing authority.</p>
+<h2 id="stablecoins">Stablecoins</h2>
+<p>Stablecoins on Arrow are portfolios of options that replicate the value of a given on-chain or off-chain underlier (or reference asset). Stablecoins can be made for "stable" assets such as established fiat currencies (USD, GBP, JPY, EUR), or they can be made for risky assets such as stocks or cryptocurrencies.</p>
+<h2 id="special-liquidity-vehicle-slv">Special Liquidity Vehicle (SLV)</h2>
+<p>A special liquidity vehicle is a customized pool of liquid assets which can be used to cover obligations in the event of a primary asset pool becoming insolvent.</p>
+<h2 id="decentralized-aggregate-counterparty-dac">Decentralized Aggregate Counterparty (DAC)</h2>
+<!-- A DAC consists of pooled capital from both option writers as well as tail insurance liquidity providers. -->
+<p>A DAC consists of two pools from which obligations are settled:</p>
+<ul>
+<li><strong>Collateral Pool:</strong> option writers mint contracts to be exchanged by providing collateral set by the protocol. The collateral is pooled with other writers on the same underlier. </li>
+</ul>
+<!-- The option writer is paid the pool residual after the buyer liabilities are paid at expiration.  -->
+<ul>
+<li><strong>Tail Liquidity Pool:</strong> a yield farming pool that provides insurance to the collateral pool if it becomes insolvent. The yield farmers are compensated with the fees collected from users of the platform. This is the Arrow DFMs' special liquidity vehicle (SLV).</li>
+</ul>
+<p><strong>Should we put in example from slides for pools?</strong></p>
+<h2 id="decentralized-financial-markets">Decentralized Financial Markets</h2>
+<p>A DFM is a DAC coupled with an option factory. An option factory is a protocol for issuing (minting) new option smart contracts when a user inputs a required amount of collateral which is locked until expiration by the contract.</p>
+<h2 id="automated-market-maker-amm">Automated Market Maker (AMM)</h2>
+<p>An AMM is a type of exchange protocol where an asset is traded against a liquidity pool with prices being determined by an algorithm rather than an order book. </p>
+<h2 id="limit-order-book-lob">Limit Order Book (LOB)</h2>
+<p>A limit order book is an exchange protocol where users can specify a price and quantity at which they would like to buy or sell. This price quantity pair as well as the direction (buy or sell) is called a limit order. Other users can then see a list of these open orders and trade against either the highest bid price (sell price) or lowest ask price (buy price).</p>
+<h2 id="crowd-financing">Crowd Financing</h2>
+<p>Crowd financing is a way of sourcing capital in a decentralized manner to back financial products which have uncertain obligations in the future. This capital is put toward the future obligations in return for possible profit if the obligations fall below the asset value at expiration.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../3-DAC_Example/" class="btn btn-neutral float-right" title="DAC Example">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../1-overview/" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../1-overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../3-DAC_Example/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="/home/ejm322/ArrowDeFi-Web-Server/docs/javascripts/config.js" defer></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
